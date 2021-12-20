@@ -13,6 +13,7 @@ export default function CatagoryList({ navigation }) {
     <ScrollView>
       {CATEGORIES.map(cat => (
         <CatagoryCard
+          key={cat.id}
           id={cat.id}
           title={cat.title}
           description={cat.description}
