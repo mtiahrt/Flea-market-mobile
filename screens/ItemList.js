@@ -1,8 +1,9 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { Modal, Button, Portal } from 'react-native-paper';
 import FilterOptions from '../components/FilterOptions';
 import { ITEMS } from '../data/dummy-data';
+import ItemCard from '../components/ItemCard';
 
 export default function ItemList({ route, navigation }) {
   const [visible, setVisible] = useState(false);
@@ -52,17 +53,18 @@ export default function ItemList({ route, navigation }) {
           <FilterOptions parentCallback={handleCallback} />
         </Modal>
       </Portal>
-      <View>
+      <ScrollView>
         {items.map(item => {
           return (
-            <React.Fragment key={item.id}>
-              <Text>{item.title}</Text>
-              <Text>{item.description}</Text>
-              <Text>{item.imageURL}</Text>
-            </React.Fragment>
+            <ItemCard
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              imageURL={item.imageURL}
+            />
           );
         })}
-      </View>
+      </ScrollView>
     </>
   );
 }

@@ -49,8 +49,22 @@ export const SUBCATEGORIES = [
   ),
 ];
 export const ITEMS = [
-  new Item('i1', 'c1', 's1', 'Mens TShirt', '', 'Mens Buttom up shirt'),
-  new Item('i2', 'c1', 's1', 'Mens Shirt', '', 'Mens rugbe shirt'),
+  new Item(
+    'i1',
+    'c1',
+    's1',
+    'Mens TShirt',
+    'https://target.scene7.com/is/image/Target/GUEST_22d315b6-3f34-4bcb-b94c-c89055614af4?wid=315&hei=315&qlt=60&fmt=pjpeg',
+    'Mens Buttom up shirt'
+  ),
+  new Item(
+    'i2',
+    'c1',
+    's1',
+    'Mens Shirt',
+    'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
+    'Mens rugbe shirt'
+  ),
 
   new Item(
     'i3',
@@ -80,14 +94,84 @@ export const ITEMS = [
   new Item('i10', 'h1', 'Circular saw', '', 'Sharp so be carfull'),
   new Item('i11', 'h1', 'Router', '', '44 mm bit included'),
   new Item('i12', 'h1', 'Drill Press', '', '5 lbs of pressare is all you need'),
-  new Item('i13', 'c1', 's2', 'womens Pants', '', 'womens flannel shirt'),
-  new Item('i14', 'c1', 's2', 'Womens button up', '', 'womens dress skirt'),
-  new Item('i15', 'c1', 's2', 'Womens Pants', '', 'womens dress up pants'),
-  new Item('i16', 'c1', 's2', 'Womens button up', '', 'womens dress'),
-  new Item('i17', 'c1', 's3', 'Kids lestic Pants', '', 'carters pant'),
-  new Item('i18', 'c1', 's3', 'Kids 3T shirt button up', '', 'Carters shirt'),
-  new Item('i19', 'c1', 's3', 'Kids 5T Pants', '', 'Kids church pant'),
-  new Item('i20', 'c1', 's3', 'Kids 3T button up', '', 'kids easy pant'),
-  new Item('i21', 'c1', 's3', 'New Born onese ', '', 'baby onse'),
-  new Item('i22', 'c1', 's3', 'Kids 6T Shirt', '', 'toddler tshirt'),
+  new Item(
+    'i13',
+    'c1',
+    's2',
+    'womens Pants',
+    'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484',
+    'womens flannel shirt'
+  ),
+  new Item(
+    'i14',
+    'c1',
+    's2',
+    'Womens Thigh High',
+    'https://cdn.shopify.com/s/files/1/0580/1077/products/Thigh_High_1_copy_721f9be0-0de2-45f1-a883-1d4a2b3f0826.jpg?v=1606855202',
+    'womens dress skirt'
+  ),
+  new Item(
+    'i15',
+    'c1',
+    's2',
+    'Womens dress',
+    'https://www.lulus.com/images/product/xlarge/3200150_607722.jpg?w=70',
+    'womens dress up pants'
+  ),
+  new Item(
+    'i16',
+    'c1',
+    's2',
+    'Womens button up',
+    'https://images.bellelily.com/2021/09/16/516174_564910210_122.images.139x197.jpg',
+    'womens dress'
+  ),
+  new Item(
+    'i17',
+    'c1',
+    's3',
+    'Kids lestic Pants',
+    'https://canary.contestimg.wish.com/api/webimage/5c872c591a866b1f66dd8d93-3-small.jpg',
+    'carters pant'
+  ),
+  new Item(
+    'i18',
+    'c1',
+    's3',
+    'Kids 3T shirt button up',
+    'https://techcrunch.com/wp-content/uploads/2016/07/14_lifestyle_dbl_roa_038.jpg?w=1390&crop=1',
+    'Carters shirt'
+  ),
+  new Item(
+    'i19',
+    'c1',
+    's3',
+    'Kids 5T Pants',
+    'https://m.media-amazon.com/images/I/519zb4kQuyL._AC_UX385_.jpg',
+    'Kids church pant'
+  ),
+  new Item(
+    'i20',
+    'c1',
+    's3',
+    'Kids 3T button up',
+    'https://media.kohlsimg.com/is/image/kohls/ki-dp-20211007-vn-a-1',
+    'kids easy pant'
+  ),
+  new Item(
+    'i21',
+    'c1',
+    's3',
+    'New Born onese ',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShrh0q-q-Byr6YVQdsZNV286v-o1EQRl8cveQEeF_xXUU6pIHYzvNKuWfSvDBQJzsyims&usqp=CAU',
+    'baby onse'
+  ),
+  new Item(
+    'i22',
+    'c1',
+    's3',
+    'Kids 6T Shirt',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWu7CqXaWRI9IqM9cRaC_xn-dzHedgfXMOX47Wa15pZJJ63OwIgE_tuixZ9KTC1zyvY0Q&usqp=CAU',
+    'toddler tshirt'
+  ),
 ];
