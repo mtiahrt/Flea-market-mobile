@@ -1,7 +1,8 @@
 class Item {
-  constructor(id, categoryId, title, imageURL, description) {
+  constructor(id, categoryId, subcategoryId, title, imageURL, description) {
     this.id = id;
     this.categoryId = categoryId;
+    this.subcategoryId = subcategoryId;
     this.title = title;
     this.imageURL = imageURL;
     this.description = description;
