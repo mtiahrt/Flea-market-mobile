@@ -18,71 +18,78 @@ export default function PostItem() {
   };
 
   return (
-    <View style={styles.container}>
-      <Controller
-        rules={{ required: { value: true, message: 'Title is required' } }}
-        defaultValue=""
-        name="title"
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input
-            placeholder="Title"
-            onChangeText={text => onChange(text)}
-            value={value}
-            erorr={errors.title}
-            errorText={errors?.title?.message}
+    <>
+      <View style={styles.container}>
+        <Text style={styles.title}>Post a New Item</Text>
+        <Controller
+          rules={{ required: { value: true, message: 'Title is required' } }}
+          defaultValue=""
+          name="title"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="Title"
+              onChangeText={text => onChange(text)}
+              value={value}
+              erorr={errors.title}
+              errorText={errors?.title?.message}
+            />
+          )}
+        />
+        <Controller
+          rules={{ required: { value: true, message: 'Category is required' } }}
+          name="category"
+          defaultValue=""
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="Category"
+              value={value}
+              onChangeText={text => onChange(text)}
+              erorr={errors.category}
+              errorText={errors?.category?.message}
+            />
+          )}
+        />
+        <Controller
+          rules={{
+            required: {
+              value: true,
+              message: 'Detailed description is required',
+            },
+          }}
+          name="description"
+          defaultValue=""
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="Description"
+              value={value}
+              onChangeText={text => onChange(text)}
+              erorr={errors.description}
+              errorText={errors?.description?.message}
+            />
+          )}
+        />
+        <View style={styles.cameraButtons}>
+          <FontAwesome
+            onPress={() => console.log('camera was pressed')}
+            name="camera"
+            size={32}
           />
-        )}
-      />
-      <Controller
-        rules={{ required: { value: true, message: 'Category is required' } }}
-        name="category"
-        defaultValue=""
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input
-            placeholder="Category"
-            value={value}
-            onChangeText={text => onChange(text)}
-            erorr={errors.category}
-            errorText={errors?.category?.message}
-          />
-        )}
-      />
-      <Controller
-        rules={{
-          required: {
-            value: true,
-            message: 'Detailed description is required',
-          },
-        }}
-        name="description"
-        defaultValue=""
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input
-            placeholder="Description"
-            value={value}
-            onChangeText={text => onChange(text)}
-            erorr={errors.description}
-            errorText={errors?.description?.message}
-          />
-        )}
-      />
+          <FontAwesome name="photo" size={32} color={t.bgGray600} />
+        </View>
 
-      <FontAwesome
-        onPress={() => console.log('camera was pressed')}
-        name="camera"
-        size={32}
-      />
-      <FontAwesome name="photo" size={32} color={t.bgGray600} />
-      <Button onPress={handleSubmit(onSubmit)} label="Submit" />
-    </View>
+        <View>
+          <Button onPress={handleSubmit(onSubmit)} label="Submit" />
+        </View>
+      </View>
+    </>
   );
 }
 
 const styles = {
-  container: [t.flex1, t.justifyCenter, t.itemsCenter, t.p6, t.bgGray200],
-  switch: [t.mB4, t.selfStart, t.flexRow, t.itemsCenter],
-  switchText: [t.textBase, t.mR3, t.textGray800],
+  container: [t.flex1, t.mT10, t.p6, t.bgGray200],
+  title: [t.textBlue800, t.textCenter, t.fontBold, t.mB5, t.textXl],
+  cameraButtons: [t.flexRow, t.justifyEvenly, t.mB5],
 };
