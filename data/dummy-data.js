@@ -1,6 +1,7 @@
 import Category from './models/category';
 import Subcategory from './models/subcategory';
 import Item from './models/item';
+import ItemDetail from './models/itemDetail';
 
 export const CATEGORIES = [
   new Category(
@@ -173,5 +174,39 @@ export const ITEMS = [
     'Kids 6T Shirt',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWu7CqXaWRI9IqM9cRaC_xn-dzHedgfXMOX47Wa15pZJJ63OwIgE_tuixZ9KTC1zyvY0Q&usqp=CAU',
     'toddler tshirt'
+  ),
+];
+
+export const ITEMSDETAILS = [
+  new ItemDetail(
+    'detail1',
+    'i1',
+    'Express Mens Large TShirt',
+    [
+      'https://target.scene7.com/is/image/Target/GUEST_22d315b6-3f34-4bcb-b94c-c89055614af4?wid=315&hei=315&qlt=60&fmt=pjpeg',
+      'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
+    ],
+    'Mens blue Tshirt',
+    'Large',
+    '3-5 business days',
+    '60 days money back',
+    '#7cd4e6',
+    '70% rayon, 25% nylon',
+    'USPS priotity mail'
+  ),
+  new ItemDetail(
+    'detail2',
+    'i2',
+    'Lucky Mens Large Polo',
+    [
+      'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
+    ],
+    'Mens blue gray polo',
+    'Large',
+    '3-5 business days',
+    '30 days money back',
+    '#a4a8a2',
+    '100% Cotten',
+    'USPS priotity mail'
   ),
 ];

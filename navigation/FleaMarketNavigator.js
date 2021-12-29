@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import CatagoryList from '../screens/CatagoryList';
 import ItemList from '../screens/ItemList';
+import ItemDetailScreen from '../screens/ItemDetailScreen';
 import PostItem from '../screens/PostItem';
 
 const BottomTabNav = createBottomTabNavigator();
@@ -26,6 +27,13 @@ const FleaMarketStackNav = () => {
         component={ItemList}
         options={{
           headerTitle: 'Item List',
+        }}
+      />
+      <Stack.Screen
+        name="ItemDetailScreen"
+        component={ItemDetailScreen}
+        options={{
+          headerTitle: 'Item Detail',
         }}
       />
     </Stack.Navigator>

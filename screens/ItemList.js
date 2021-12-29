@@ -6,12 +6,17 @@ import { ITEMS } from '../data/dummy-data';
 import ItemCard from '../components/ItemCard';
 
 export default function ItemList({ route, navigation }) {
-  const [visible, setVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const [items, setItems] = useState(ITEMS);
   const { categoryId } = route.params;
   const containerStyle = { backgroundColor: 'white', padding: 20 };
   const handleOnDismiss = params => {
-    setVisible(false);
+    setModalVisible(false);
+  };
+  const handleOnPress = id => {
+    navigation.navigate('ItemDetailScreen', {
+      itemId: id,
+    });
   };
   const handleCallback = filterOptionsSelected => {
     const mySubcategorys = filterOptionsSelected
@@ -32,7 +37,7 @@ export default function ItemList({ route, navigation }) {
         headerRight: () => (
           <Button
             icon={'filter'}
-            onPress={() => setVisible(!visible)}
+            onPress={() => setModalVisible(!modalVisible)}
             title="Filter"
           />
         ),
@@ -47,7 +52,7 @@ export default function ItemList({ route, navigation }) {
         <Modal
           onDismiss={handleOnDismiss}
           contentContainerStyle={containerStyle}
-          visible={visible}
+          visible={modalVisible}
         >
           <Text>Select filter options</Text>
           <FilterOptions parentCallback={handleCallback} />
@@ -61,6 +66,7 @@ export default function ItemList({ route, navigation }) {
               title={item.title}
               description={item.description}
               imageURL={item.imageURL}
+              onPress={() => handleOnPress(item.id)}
             />
           );
         })}
