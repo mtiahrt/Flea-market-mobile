@@ -181,7 +181,7 @@ export const ITEMSDETAILS = [
   new ItemDetail(
     'detail1',
     'i1',
-    'Express Mens Large TShirt',
+    'Floral Moisture-Wicking Performance T-Shirt',
     [
       'https://target.scene7.com/is/image/Target/GUEST_22d315b6-3f34-4bcb-b94c-c89055614af4?wid=315&hei=315&qlt=60&fmt=pjpeg',
       'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',

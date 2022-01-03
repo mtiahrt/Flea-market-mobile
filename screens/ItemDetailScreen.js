@@ -1,7 +1,9 @@
 import React, { useLayoutEffect } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { Button } from 'react-native-paper';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
+import Button from '../components/Button';
 import { ITEMSDETAILS } from '../data/dummy-data';
+import { Divider, Text } from 'react-native-paper';
+import { borderColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 export default function ItemDetail({ route, navigation }) {
   useLayoutEffect(() => {
@@ -18,70 +20,96 @@ export default function ItemDetail({ route, navigation }) {
   const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
   console.log('item detail is rendering');
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <Image style={styles.itemImage} source={{ uri: itemDetail.photos[0] }} />
-      <View>
-        <Text>Manufacturer Name</Text>
-        <Text>Item Name</Text>
+      <View style={styles.container}>
+        <Divider style={styles.divider} />
+        {/* todo add title to props */}
+        <Text style={styles.itemTitle}>Express Men</Text>
+        <Text>{itemDetail.title}</Text>
         <Text>$88</Text>
-      </View>
-      <Text>Select a color</Text>
-      <View style={[styles.colorBox, { backgroundColor: 'powderblue' }]}></View>
-      <View style={[styles.colorBox, { backgroundColor: 'skyblue' }]}></View>
-      <View style={[styles.colorBox, { backgroundColor: 'steelblue' }]}></View>
-      <Text>Size</Text>
-      <View style={styles.sizeBox}>
-        <Text>XS</Text>
-      </View>
-      <View style={styles.sizeBox}>
-        <Text>S</Text>
-      </View>
-      <View style={styles.sizeBox}>
-        <Text>M</Text>
-      </View>
-      <View style={styles.sizeBox}>
-        <Text>L</Text>
-      </View>
-      <View style={styles.sizeBox}>
-        <Text>XL</Text>
-      </View>
-      <Button style={styles.button}>Add to Cart</Button>
-      <View>
-        <Text>Estimated Delivery</Text>
-        <Text>{itemDetail.estimatedDelivery}</Text>
-        <Text>Delivary Method</Text>
-        <Text>{itemDetail.deliveryTerms}</Text>
-        <Text>Return Policy</Text>
-        <Text>{itemDetail.returnPolicy}</Text>
-        <Text>Material Used</Text>
-        <Text>{itemDetail.material}</Text>
+        <Divider style={styles.divider} />
+        <Text style={styles.newSection}>Color:</Text>
+        {/* todo add color selection state here */}
+        <View style={styles.colorBoxes}>
+          <Text style={[styles.colorBox, { backgroundColor: 'powderblue' }]}>
+            blue
+          </Text>
+          <Text style={[styles.colorBox, { backgroundColor: 'skyblue' }]}>
+            sky
+          </Text>
+          <Text style={[styles.colorBox, { backgroundColor: 'steelblue' }]}>
+            steel
+          </Text>
+        </View>
+        <Text style={styles.newSection}>Size:</Text>
+        {/* todo add selected size here */}
+        <View style={styles.sizeBoxes}>
+          <Text style={styles.sizeBox}>XS</Text>
+          <Text style={styles.sizeBox}>S</Text>
+          <Text style={styles.sizeBox}>M</Text>
+          <Text style={styles.sizeBox}>L</Text>
+          <Text style={styles.sizeBox}>XL</Text>
+        </View>
+        <Button label="Add to Cart" />
+        <View style={styles.details}>
+          <Text style={styles.detailTitle}>Estimated Delivery:</Text>
+          <Text style={styles.detail}>{itemDetail.estimatedDelivery}</Text>
+          <Text style={styles.detailTitle}>Delivary Method:</Text>
+          <Text style={styles.detail}>{itemDetail.deliveryTerms}</Text>
+          <Text style={styles.detailTitle}>Return Policy:</Text>
+          <Text style={styles.detail}>{itemDetail.returnPolicy}</Text>
+          <Text style={styles.detailTitle}>Material Used:</Text>
+          <Text style={styles.detail}>{itemDetail.material}</Text>
+        </View>
       </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  itemImage: {
+    width: '100%',
+    height: 450,
+  },
   container: {
     flex: 1,
-    backgroundColor: 'lightgreen',
-    padding: 1,
+    padding: 6,
+    margin: 5,
   },
-  itemImage: {
-    width: '95%',
-    height: 450,
-    justifyContent: 'center',
+  itemTitle: {
+    fontSize: 40,
+  },
+  divider: { borderWidth: 0.3, borderColor: 'gray' },
+  newSection: {
+    marginTop: 15,
+  },
+  colorBoxes: {
+    flexDirection: 'row',
   },
   colorBox: {
-    width: 50,
-    height: 50,
+    margin: 5,
+    padding: 15,
+  },
+  sizeBoxes: {
+    marginTop: 10,
+    flexDirection: 'row',
   },
   sizeBox: {
+    margin: 5,
     width: 50,
     height: 50,
     borderColor: 'black',
     borderWidth: 3,
   },
-  button: {
-    backgroundColor: 'blue',
+  details: {
+    // backgroundColor: 'pink',
+  },
+  detailTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  detail: {
+    marginBottom: 10,
   },
 });

@@ -79,10 +79,7 @@ export default function PostItem() {
           />
           <FontAwesome name="photo" size={32} color={t.bgGray600} />
         </View>
-
-        <View>
-          <Button onPress={handleSubmit(onSubmit)} label="Submit" />
-        </View>
+        <Button onPress={handleSubmit(onSubmit)} label="Submit" />
       </View>
     </>
   );
@@ -91,5 +88,5 @@ export default function PostItem() {
 const styles = {
   container: [t.flex1, t.mT10, t.p6, t.bgGray200],
   title: [t.textBlue800, t.textCenter, t.fontBold, t.mB5, t.textXl],
-  cameraButtons: [t.flexRow, t.justifyEvenly, t.mB5],
+  cameraButtons: [t.flexRow, t.justifyEvenly],
 };
