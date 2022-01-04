@@ -3,8 +3,7 @@ import { StyleSheet, View, Image, ScrollView } from 'react-native';
 import Button from '../components/Button';
 import { ITEMSDETAILS } from '../data/dummy-data';
 import { Divider, Text } from 'react-native-paper';
-import { borderColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
-
+import { t } from 'react-native-tailwindcss';
 export default function ItemDetail({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions(
@@ -21,13 +20,18 @@ export default function ItemDetail({ route, navigation }) {
   console.log('item detail is rendering');
   return (
     <ScrollView>
-      <Image style={styles.itemImage} source={{ uri: itemDetail.photos[0] }} />
+      {itemDetail?.photos && (
+        <Image
+          style={styles.itemImage}
+          source={{ uri: itemDetail.photos[0] }}
+        />
+      )}
       <View style={styles.container}>
         <Divider style={styles.divider} />
         {/* todo add title to props */}
-        <Text style={styles.itemTitle}>Express Men</Text>
-        <Text>{itemDetail.title}</Text>
-        <Text>$88</Text>
+        <Text style={styles.itemManufacturer}>Express</Text>
+        <Text>{itemDetail?.title}</Text>
+        <Text style={styles.price}>$88</Text>
         <Divider style={styles.divider} />
         <Text style={styles.newSection}>Color:</Text>
         {/* todo add color selection state here */}
@@ -35,7 +39,13 @@ export default function ItemDetail({ route, navigation }) {
           <Text style={[styles.colorBox, { backgroundColor: 'powderblue' }]}>
             blue
           </Text>
-          <Text style={[styles.colorBox, { backgroundColor: 'skyblue' }]}>
+          <Text
+            style={[
+              styles.colorBox,
+              { backgroundColor: 'skyblue' },
+              styles.colorBoxSelected,
+            ]}
+          >
             sky
           </Text>
           <Text style={[styles.colorBox, { backgroundColor: 'steelblue' }]}>
@@ -54,13 +64,13 @@ export default function ItemDetail({ route, navigation }) {
         <Button label="Add to Cart" />
         <View style={styles.details}>
           <Text style={styles.detailTitle}>Estimated Delivery:</Text>
-          <Text style={styles.detail}>{itemDetail.estimatedDelivery}</Text>
+          <Text style={styles.detail}>{itemDetail?.estimatedDelivery}</Text>
           <Text style={styles.detailTitle}>Delivary Method:</Text>
-          <Text style={styles.detail}>{itemDetail.deliveryTerms}</Text>
+          <Text style={styles.detail}>{itemDetail?.deliveryTerms}</Text>
           <Text style={styles.detailTitle}>Return Policy:</Text>
-          <Text style={styles.detail}>{itemDetail.returnPolicy}</Text>
+          <Text style={styles.detail}>{itemDetail?.returnPolicy}</Text>
           <Text style={styles.detailTitle}>Material Used:</Text>
-          <Text style={styles.detail}>{itemDetail.material}</Text>
+          <Text style={styles.detail}>{itemDetail?.material}</Text>
         </View>
       </View>
     </ScrollView>
@@ -77,10 +87,13 @@ const styles = StyleSheet.create({
     padding: 6,
     margin: 5,
   },
-  itemTitle: {
+  itemManufacturer: {
     fontSize: 40,
   },
-  divider: { borderWidth: 0.3, borderColor: 'gray' },
+  price: {
+    color: t.textGreen600,
+  },
+  divider: { borderWidth: 0.3, borderColor: '#a0aec0' },
   newSection: {
     marginTop: 15,
   },
@@ -91,6 +104,10 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 15,
   },
+  colorBoxSelected: {
+    borderWidth: 3,
+    borderColor: '#a0aec0',
+  },
   sizeBoxes: {
     marginTop: 10,
     flexDirection: 'row',
@@ -99,8 +116,9 @@ const styles = StyleSheet.create({
     margin: 5,
     width: 50,
     height: 50,
-    borderColor: 'black',
-    borderWidth: 3,
+    padding: 15,
+    borderColor: '#a0aec0',
+    borderWidth: 2,
   },
   details: {
     // backgroundColor: 'pink',
