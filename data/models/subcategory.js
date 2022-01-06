@@ -1,8 +1,9 @@
 class Subcategory {
-  constructor(id, categoryId, title, description) {
+  constructor(id, categoryId, title, iconName, description) {
     this.id = id;
     this.categoryId = categoryId;
     this.title = title;
+    this.iconName = iconName;
     this.description = description;
   }
 }

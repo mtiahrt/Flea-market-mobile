@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 import { Modal, Button, Portal } from 'react-native-paper';
 import FilterOptions from '../components/FilterOptions';
 import { ITEMS } from '../data/dummy-data';
@@ -8,11 +8,13 @@ import ItemCard from '../components/ItemCard';
 export default function ItemList({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [items, setItems] = useState(ITEMS);
-  const { categoryId } = route.params;
+  const { subCategoryId } = route.params;
   const containerStyle = { backgroundColor: 'white', padding: 20 };
-  const handleOnDismiss = params => {
+
+  const handleOnDismiss = () => {
     setModalVisible(false);
   };
+
   const handleOnPress = id => {
     navigation.navigate('ItemDetailScreen', {
       itemId: id,
@@ -21,12 +23,12 @@ export default function ItemList({ route, navigation }) {
   const handleCallback = filterOptionsSelected => {
     const mySubcategorys = filterOptionsSelected
       .filter(item => item.isChecked)
-      .map(item => item.subcategoryId);
+      .map(item => item.subCategoryId);
     setItems(
       ITEMS.filter(
         i =>
-          i.categoryId === categoryId &&
-          mySubcategorys.includes(i.subcategoryId)
+          i.subCategoryId === subCategoryId &&
+          mySubcategorys.includes(i.subsubCategoryId)
       )
     );
   };
@@ -59,17 +61,19 @@ export default function ItemList({ route, navigation }) {
         </Modal>
       </Portal>
       <ScrollView>
-        {items.map(item => {
-          return (
-            <ItemCard
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              imageURL={item.imageURL}
-              onPress={() => handleOnPress(item.id)}
-            />
-          );
-        })}
+        {items
+          .filter(x => x.subcategoryId === subCategoryId)
+          .map(item => {
+            return (
+              <ItemCard
+                key={item.id}
+                title={item.title}
+                description={item.description}
+                imageURL={item.imageURL}
+                onPress={() => handleOnPress(item.id)}
+              />
+            );
+          })}
       </ScrollView>
     </>
   );

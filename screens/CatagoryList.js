@@ -1,25 +1,52 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
-import ItemCard from '../components/ItemCard';
-import { CATEGORIES } from '../data/dummy-data';
+import * as React from 'react';
+import { List } from 'react-native-paper';
+import { ScrollView, Text, View } from 'react-native';
+import Category from '../data/models/category';
+import { CATEGORIES, SUBCATEGORIES } from '../data/dummy-data';
 
-export default function CatagoryList({ navigation }) {
-  const handleOnPress = id => {
+const CategoryList = ({ navigation }) => {
+  const [expanded, setExpanded] = React.useState(true);
+
+  // const handlePress = () => setExpanded(!expanded);
+  const handleSubcategoryOnPress = id => {
     navigation.navigate('ItemList', {
-      categoryId: id,
+      subCategoryId: id,
     });
   };
   return (
     <ScrollView>
-      {CATEGORIES.map(cat => (
-        <ItemCard
-          key={cat.id}
-          title={cat.title}
-          description={cat.description}
-          imageURL={cat.imageURL}
-          onPress={() => handleOnPress(cat.id)}
-        />
-      ))}
+      {CATEGORIES.map(cat => {
+        return (
+          <List.Section>
+            <List.Accordion
+              title={cat.title}
+              left={props => <List.Icon {...props} icon={cat.iconName} />}
+            >
+              {SUBCATEGORIES.filter(x => x.categoryId === cat.id).map(
+                subCat => {
+                  return (
+                    <List.Item
+                      title={subCat.title}
+                      onPress={() => handleSubcategoryOnPress(subCat.id)}
+                      left={props => (
+                        (props.style = { marginLeft: 25, marginVertical: 0 }),
+                        (
+                          <List.Icon
+                            {...props}
+                            icon={subCat.iconName ? subCat.iconName : ''}
+                          />
+                        )
+                      )}
+                    ></List.Item>
+                  );
+                }
+              )}
+            </List.Accordion>
+          </List.Section>
+        );
+      })}
     </ScrollView>
   );
-}
+};
+
+export default CategoryList;

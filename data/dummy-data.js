@@ -8,24 +8,28 @@ export const CATEGORIES = [
     'c1',
     'Clothing',
     'https://as1.ftcdn.net/v2/jpg/02/85/94/70/1000_F_285947084_ePYjQpzCaQq6Vb2GEoYGZs8MNYkUhNqB.jpg',
+    'hanger',
     'Womans, Mens, Children, Toddlers, Babies. We have all walks of life'
   ),
   new Category(
     'e1',
     'Electronics',
     'https://t3.ftcdn.net/jpg/01/16/51/12/360_F_116511270_7oPaQ6tWGzKJWIN91Y648SHhGEJKbNpY.jpg',
+    'laptop',
     'Computers, Radios, Phones, Appliances, TVs. We have all electrical walks of life'
   ),
   new Category(
     'hg1',
     'Home Goods',
     'https://thumbs.dreamstime.com/z/houseplants-room-vector-illustration-cartoon-flat-living-kitchen-cozy-apartment-flower-plants-pot-home-decor-shelf-178489626.jpg',
+    'bookshelf',
     'Furniture, NicNacks, Picture Frames, Drapes, Decorative items.  What you would need to scale up your home.'
   ),
   new Category(
     'h1',
     'Hardware',
     'https://thumbs.dreamstime.com/z/tools-store-hardware-construction-shop-interior-salesman-stand-counter-desk-showing-thumb-up-showcases-diy-160746851.jpg',
+    'tools',
     'Table saws, Paint, Wrench, Ratchet and Sockets, Stud finder'
   ),
 ];
@@ -34,19 +38,29 @@ export const SUBCATEGORIES = [
     's1',
     'c1',
     'Mens Clothing',
+    'human-male',
     'Mens Clothing from tshirts to pants'
   ),
   new Subcategory(
     's2',
     'c1',
     'Womens Clothing',
+    'human-female',
     'Womens Clothing from tshirts to pants'
   ),
   new Subcategory(
     's3',
     'c1',
     'Kids Clothing',
+    'human-child',
     'Kids Clothing from tshirts to pants'
+  ),
+  new Subcategory(
+    's4',
+    'e1',
+    'Computers',
+    'laptop',
+    'Computers and accessories'
   ),
 ];
 export const ITEMS = [
