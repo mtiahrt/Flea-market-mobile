@@ -4,10 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import CatagoryList from '../screens/CatagoryList';
-import ItemList from '../screens/ItemList';
+import CategoriesScreen from '../screens/CatagoriesScreen';
+import ItemList from '../screens/ItemsScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
-import PostItem from '../screens/PostItem';
+import PostItemScreen from '../screens/PostItemScreen';
 
 const BottomTabNav = createBottomTabNavigator();
 
@@ -17,7 +17,7 @@ const FleaMarketStackNav = () => {
     <Stack.Navigator initialRouteName="CatagoryList">
       <Stack.Screen
         name="CatagoryList"
-        component={CatagoryList}
+        component={CategoriesScreen}
         options={{
           headerTitle: 'Catagory List',
         }}
@@ -60,7 +60,7 @@ function FleaMarketBottomTabs() {
         })}
       >
         <BottomTabNav.Screen name="Catagories" component={FleaMarketStackNav} />
-        <BottomTabNav.Screen name="Add" component={PostItem} />
+        <BottomTabNav.Screen name="Add" component={PostItemScreen} />
       </BottomTabNav.Navigator>
     </NavigationContainer>
   );

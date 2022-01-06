@@ -4,7 +4,7 @@ import { ScrollView, Text, View } from 'react-native';
 import Category from '../data/models/category';
 import { CATEGORIES, SUBCATEGORIES } from '../data/dummy-data';
 
-const CategoryList = ({ navigation }) => {
+const CategoriesScreen = ({ navigation }) => {
   const [expanded, setExpanded] = React.useState(true);
 
   // const handlePress = () => setExpanded(!expanded);
@@ -49,4 +49,4 @@ const CategoryList = ({ navigation }) => {
   );
 };
 
-export default CategoryList;
+export default CategoriesScreen;
