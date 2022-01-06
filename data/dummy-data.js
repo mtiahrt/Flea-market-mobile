@@ -187,10 +187,13 @@ export const ITEMSDETAILS = [
       'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
     ],
     'Mens blue Tshirt',
-    'Large',
+    ['L', 'XL'],
     '3-5 business days',
     '60 days money back',
-    '#7cd4e6',
+    [
+      { color: '#7cd4e6', name: 'blue' },
+      { color: 'coral', name: 'coral' },
+    ],
     '70% rayon, 25% nylon',
     'USPS priotity mail'
   ),
@@ -202,10 +205,10 @@ export const ITEMSDETAILS = [
       'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
     ],
     'Mens blue gray polo',
-    'Large',
+    ['L'],
     '3-5 business days',
     '30 days money back',
-    '#a4a8a2',
+    [{ color: '#ddd', name: 'gray' }],
     '100% Cotten',
     'USPS priotity mail'
   ),

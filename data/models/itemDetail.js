@@ -5,10 +5,10 @@ class ItemDetail {
     title,
     photos,
     description,
-    size,
+    sizes,
     estimatedDelivery,
     returnPolicy,
-    color,
+    colors,
     meterial,
     deliveryTerms
   ) {
@@ -17,10 +17,10 @@ class ItemDetail {
     this.title = title;
     this.photos = photos;
     this.description = description;
-    this.size = size;
+    this.sizes = sizes;
     this.estimatedDelivery = estimatedDelivery;
     this.returnPolicy = returnPolicy;
-    this.color = color;
+    this.colors = colors;
     this.material = meterial;
     this.deliveryTerms = deliveryTerms;
   }

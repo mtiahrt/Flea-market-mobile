@@ -1,10 +1,15 @@
-import React, { useLayoutEffect } from 'react';
-import { StyleSheet, View, Image, ScrollView } from 'react-native';
+import React, { useLayoutEffect, useState } from 'react';
+import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 import Button from '../components/Button';
 import { ITEMSDETAILS } from '../data/dummy-data';
-import { Divider, Text } from 'react-native-paper';
+import { Divider } from 'react-native-paper';
 import { t } from 'react-native-tailwindcss';
+
 export default function ItemDetail({ route, navigation }) {
+  const [activeColor, setActiveColor] = useState('');
+  const { itemId } = route.params;
+  const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
+
   useLayoutEffect(() => {
     navigation.setOptions(
       {
@@ -15,9 +20,15 @@ export default function ItemDetail({ route, navigation }) {
       [navigation]
     );
   });
-  const { itemId } = route.params;
-  const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
-  console.log('item detail is rendering');
+
+  const setSizeToSelected = txt => {
+    setActiveColor(txt);
+  };
+  const setSizeBoxStyle = size => {
+    return itemDetail.sizes.includes(size)
+      ? styles.sizeBox
+      : { ...styles.sizeBox, ...styles.sizeBoxDisabled };
+  };
   return (
     <ScrollView>
       {itemDetail?.photos && (
@@ -28,41 +39,37 @@ export default function ItemDetail({ route, navigation }) {
       )}
       <View style={styles.container}>
         <Divider style={styles.divider} />
-        {/* todo add title to props */}
         <Text style={styles.itemManufacturer}>Express</Text>
         <Text>{itemDetail?.title}</Text>
         <Text style={styles.price}>$88</Text>
         <Divider style={styles.divider} />
         <Text style={styles.newSection}>Color:</Text>
-        {/* todo add color selection state here */}
         <View style={styles.colorBoxes}>
-          <Text style={[styles.colorBox, { backgroundColor: 'powderblue' }]}>
-            blue
-          </Text>
-          <Text
-            style={[
-              styles.colorBox,
-              { backgroundColor: 'skyblue' },
-              styles.colorBoxSelected,
-            ]}
-          >
-            sky
-          </Text>
-          <Text style={[styles.colorBox, { backgroundColor: 'steelblue' }]}>
-            steel
-          </Text>
+          {itemDetail?.colors.map(color => {
+            return (
+              <Text
+                onPress={() => setSizeToSelected(color.color)}
+                style={[
+                  styles.colorBox,
+                  { backgroundColor: color.color },
+                  activeColor === color.color ? styles.colorBoxSelected : {},
+                ]}
+              >
+                {color.name}
+              </Text>
+            );
+          })}
         </View>
         <Text style={styles.newSection}>Size:</Text>
-        {/* todo add selected size here */}
         <View style={styles.sizeBoxes}>
-          <Text style={styles.sizeBox}>XS</Text>
-          <Text style={styles.sizeBox}>S</Text>
-          <Text style={styles.sizeBox}>M</Text>
-          <Text style={styles.sizeBox}>L</Text>
-          <Text style={styles.sizeBox}>XL</Text>
+          <Text style={setSizeBoxStyle('XS')}>XS</Text>
+          <Text style={setSizeBoxStyle('S')}>S</Text>
+          <Text style={setSizeBoxStyle('M')}>M</Text>
+          <Text style={setSizeBoxStyle('L')}>L</Text>
+          <Text style={setSizeBoxStyle('XL')}>XL</Text>
         </View>
         <Button label="Add to Cart" />
-        <View style={styles.details}>
+        <View>
           <Text style={styles.detailTitle}>Estimated Delivery:</Text>
           <Text style={styles.detail}>{itemDetail?.estimatedDelivery}</Text>
           <Text style={styles.detailTitle}>Delivary Method:</Text>
@@ -120,8 +127,9 @@ const styles = StyleSheet.create({
     borderColor: '#a0aec0',
     borderWidth: 2,
   },
-  details: {
-    // backgroundColor: 'pink',
+  sizeBoxDisabled: {
+    color: 'lightgray',
+    borderColor: 'lightgray',
   },
   detailTitle: {
     fontSize: 18,
