@@ -2,6 +2,7 @@ import Category from './models/category';
 import Subcategory from './models/subcategory';
 import Item from './models/item';
 import ItemDetail from './models/itemDetail';
+import Cart from './models/cart';
 
 export const CATEGORIES = [
   new Category(
@@ -190,7 +191,6 @@ export const ITEMS = [
     'toddler tshirt'
   ),
 ];
-
 export const ITEMSDETAILS = [
   new ItemDetail(
     'detail1',
@@ -202,6 +202,7 @@ export const ITEMSDETAILS = [
     ],
     'Mens blue Tshirt',
     ['L', 'XL'],
+    88.45,
     '3-5 business days',
     '60 days money back',
     [
@@ -220,10 +221,15 @@ export const ITEMSDETAILS = [
     ],
     'Mens blue gray polo',
     ['L'],
+    99.25,
     '3-5 business days',
     '30 days money back',
     [{ color: '#ddd', name: 'gray' }],
     '100% Cotten',
     'USPS priotity mail'
   ),
+];
+export const CART = [
+  new Cart('cart1', 'i1', 'mtiahrt', 1, 1),
+  new Cart('cart1', 'i2', 'mtiahrt', 1, 1),
 ];

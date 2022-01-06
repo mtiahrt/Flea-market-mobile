@@ -6,6 +6,7 @@ class ItemDetail {
     photos,
     description,
     sizes,
+    price,
     estimatedDelivery,
     returnPolicy,
     colors,
@@ -18,6 +19,7 @@ class ItemDetail {
     this.photos = photos;
     this.description = description;
     this.sizes = sizes;
+    this.price = price;
     this.estimatedDelivery = estimatedDelivery;
     this.returnPolicy = returnPolicy;
     this.colors = colors;

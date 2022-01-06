@@ -48,6 +48,7 @@ export default function ItemDetail({ route, navigation }) {
           {itemDetail?.colors.map(color => {
             return (
               <Text
+                key={color.color}
                 onPress={() => setSizeToSelected(color.color)}
                 style={[
                   styles.colorBox,

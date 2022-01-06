@@ -17,32 +17,30 @@ const CategoriesScreen = ({ navigation }) => {
     <ScrollView>
       {CATEGORIES.map(cat => {
         return (
-          <List.Section>
-            <List.Accordion
-              title={cat.title}
-              left={props => <List.Icon {...props} icon={cat.iconName} />}
-            >
-              {SUBCATEGORIES.filter(x => x.categoryId === cat.id).map(
-                subCat => {
-                  return (
-                    <List.Item
-                      title={subCat.title}
-                      onPress={() => handleSubcategoryOnPress(subCat.id)}
-                      left={props => (
-                        (props.style = { marginLeft: 25, marginVertical: 0 }),
-                        (
-                          <List.Icon
-                            {...props}
-                            icon={subCat.iconName ? subCat.iconName : ''}
-                          />
-                        )
-                      )}
-                    ></List.Item>
-                  );
-                }
-              )}
-            </List.Accordion>
-          </List.Section>
+          <List.Accordion
+            key={cat.id}
+            title={cat.title}
+            left={props => <List.Icon {...props} icon={cat.iconName} />}
+          >
+            {SUBCATEGORIES.filter(x => x.categoryId === cat.id).map(subCat => {
+              return (
+                <List.Item
+                  key={subCat.id}
+                  title={subCat.title}
+                  onPress={() => handleSubcategoryOnPress(subCat.id)}
+                  left={props => (
+                    (props.style = { marginLeft: 25, marginVertical: 0 }),
+                    (
+                      <List.Icon
+                        {...props}
+                        icon={subCat.iconName ? subCat.iconName : ''}
+                      />
+                    )
+                  )}
+                ></List.Item>
+              );
+            })}
+          </List.Accordion>
         );
       })}
     </ScrollView>

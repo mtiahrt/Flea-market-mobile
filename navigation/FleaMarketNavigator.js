@@ -8,6 +8,7 @@ import CategoriesScreen from '../screens/CatagoriesScreen';
 import ItemList from '../screens/ItemsScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import PostItemScreen from '../screens/PostItemScreen';
+import CartScreen from '../screens/CartScreen';
 
 const BottomTabNav = createBottomTabNavigator();
 
@@ -51,6 +52,8 @@ function FleaMarketBottomTabs() {
               iconName = focused ? 'ios-home' : 'ios-home-outline';
             } else if (route.name === 'Add') {
               iconName = focused ? 'ios-add-circle' : 'ios-add-circle-outline';
+            } else if (route.name === 'Cart') {
+              iconName = focused ? 'ios-cart-sharp' : 'ios-cart-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -61,6 +64,7 @@ function FleaMarketBottomTabs() {
       >
         <BottomTabNav.Screen name="Catagories" component={FleaMarketStackNav} />
         <BottomTabNav.Screen name="Add" component={PostItemScreen} />
+        <BottomTabNav.Screen name="Cart" component={CartScreen} />
       </BottomTabNav.Navigator>
     </NavigationContainer>
   );
