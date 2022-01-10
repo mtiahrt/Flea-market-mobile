@@ -1,32 +1,35 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { CART, ITEMSDETAILS } from '../data/dummy-data';
+import React, { useContext } from 'react';
+import { StyleSheet, ScrollView, Text, View, Image } from 'react-native';
+import { ITEMSDETAILS } from '../data/dummy-data';
 import Button from '../components/Button';
+import { CartContext } from '../contexts/CartContext';
 
 export default function CartScreen() {
-  const cartItemIds = CART.map(x => x.itemId);
-  const itemDetail = ITEMSDETAILS.filter(x => cartItemIds.includes(x.itemId));
+  const { itemDetailIds } = useContext(CartContext);
+  const itemDetail = ITEMSDETAILS.filter(x => itemDetailIds.includes(x.id));
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>Shopping Cart</Text>
-      {itemDetail.map(item => {
-        return (
-          <View style={styles.cardContainer} key={item.id}>
-            <Image
-              style={styles.image}
-              source={{
-                url: item.photos[0],
-              }}
-            ></Image>
-            <Text style={styles.itemText}>{item.title}</Text>
-            <Text style={styles.priceText}>{item.price}</Text>
-          </View>
-        );
-      })}
+      {itemDetail &&
+        itemDetail.map(item => {
+          return (
+            <View style={styles.cardContainer} key={item.id}>
+              <Image
+                style={styles.image}
+                source={{
+                  url: item.photos[0],
+                }}
+              ></Image>
+              <Text style={styles.itemText}>{item.title}</Text>
+              <Text style={styles.priceText}>{item.price}</Text>
+            </View>
+          );
+        })}
       <Button label="Checkout"></Button>
-    </View>
+    </ScrollView>
   );
 }
+// todo refactor using tailwind
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 10,
     marginTop: 10,
+    justifyContent: 'flex-start',
   },
   title: {
     height: 40,
@@ -50,13 +54,12 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flexShrink: 1,
-    marginLeft: 10,
   },
   priceText: {
     fontWeight: '800',
   },
   image: {
-    backgroundColor: 'yellow',
+    // backgroundColor: 'lightblue',
     width: '30%',
     height: 120,
   },

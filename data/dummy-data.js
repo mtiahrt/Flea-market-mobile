@@ -228,8 +228,78 @@ export const ITEMSDETAILS = [
     '100% Cotten',
     'USPS priotity mail'
   ),
-];
-export const CART = [
-  new Cart('cart1', 'i1', 'mtiahrt', 1, 1),
-  new Cart('cart1', 'i2', 'mtiahrt', 1, 1),
+  new ItemDetail(
+    'detail3',
+    'i14',
+    'Womens Thigh High',
+    [
+      'https://cdn.shopify.com/s/files/1/0580/1077/products/Thigh_High_1_copy_721f9be0-0de2-45f1-a883-1d4a2b3f0826.jpg?v=1606855202',
+    ],
+    'womans thigh workout spandex pants',
+    ['L', 'M', 'S'],
+    45.99,
+    '3-7 business days',
+    '14 days good as cash',
+    [
+      { color: '#09040b', name: 'black' },
+      { color: '#e91694', name: 'pink' },
+      { color: '#874bb4', name: 'purple' },
+    ],
+    'Cotten',
+    'FexEx'
+  ),
+  new ItemDetail(
+    'detail4',
+    'i15',
+    'Womens Summer Dress',
+    ['https://www.lulus.com/images/product/xlarge/3200150_607722.jpg?w=70'],
+    'womans thigh workout spandex pants',
+    ['L', 'XS', 'S'],
+    49.99,
+    '3-7 business days',
+    '14 days good as cash',
+    [
+      { color: '#e1751e', name: 'orange' },
+      { color: '#e91694', name: 'blue' },
+      { color: '#874bb4', name: 'pink' },
+    ],
+    'Cotten',
+    'FexEx'
+  ),
+  new ItemDetail(
+    'detail5',
+    'i16',
+    'Womens Buttom up shirt',
+    [
+      'https://images.bellelily.com/2021/09/16/516174_564910210_122.images.139x197.jpg',
+    ],
+    'womans thigh workout spandex pants',
+    ['L', 'XL', 'S'],
+    34.99,
+    '3-7 business days',
+    '14 days good as cash',
+    [
+      { color: '#e1751e', name: 'orange' },
+      { color: '#e91694', name: 'pink' },
+      { color: '#874bb4', name: 'purple' },
+    ],
+    'Cotten',
+    'FexEx'
+  ),
+  new ItemDetail(
+    'detail6',
+    'i13',
+    'Womens Pant',
+    [
+      'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484',
+    ],
+    'womans thigh workout spandex pants',
+    ['L', 'XS', 'S'],
+    34.99,
+    '3-7 business days',
+    '14 days good as cash',
+    [{ color: '#09040b', name: 'Black' }],
+    'Cotten',
+    'FexEx'
+  ),
 ];

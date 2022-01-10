@@ -1,12 +1,14 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState, useContext } from 'react';
 import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 import Button from '../components/Button';
 import { ITEMSDETAILS } from '../data/dummy-data';
 import { Divider } from 'react-native-paper';
 import { t } from 'react-native-tailwindcss';
+import { CartContext } from '../contexts/CartContext';
 
 export default function ItemDetail({ route, navigation }) {
   const [activeColor, setActiveColor] = useState('');
+  const cart = useContext(CartContext);
   const { itemId } = route.params;
   const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
 
@@ -25,9 +27,12 @@ export default function ItemDetail({ route, navigation }) {
     setActiveColor(txt);
   };
   const setSizeBoxStyle = size => {
-    return itemDetail.sizes.includes(size)
+    return itemDetail?.sizes?.includes(size)
       ? styles.sizeBox
       : { ...styles.sizeBox, ...styles.sizeBoxDisabled };
+  };
+  const addToCart = id => {
+    cart.setItemDetailIds([id, ...cart.itemDetailIds]);
   };
   return (
     <ScrollView>
@@ -69,7 +74,7 @@ export default function ItemDetail({ route, navigation }) {
           <Text style={setSizeBoxStyle('L')}>L</Text>
           <Text style={setSizeBoxStyle('XL')}>XL</Text>
         </View>
-        <Button label="Add to Cart" />
+        <Button onPress={() => addToCart(itemDetail.id)} label="Add to Cart" />
         <View>
           <Text style={styles.detailTitle}>Estimated Delivery:</Text>
           <Text style={styles.detail}>{itemDetail?.estimatedDelivery}</Text>

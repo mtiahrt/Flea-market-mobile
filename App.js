@@ -1,5 +1,6 @@
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import FleaMarketStackNav from './navigation/FleaMarketNavigator';
+import { CartProvider } from './contexts/CartContext';
 
 const theme = {
   ...DefaultTheme,
@@ -13,7 +14,9 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <FleaMarketStackNav />
+      <CartProvider>
+        <FleaMarketStackNav />
+      </CartProvider>
     </PaperProvider>
   );
 }
