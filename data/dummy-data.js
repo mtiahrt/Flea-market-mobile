@@ -215,7 +215,7 @@ export const ITEMSDETAILS = [
   new ItemDetail(
     'detail2',
     'i2',
-    'Lucky Mens Large Polo',
+    'Lucky Mens Large Polo casual polo shirt',
     [
       'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
     ],

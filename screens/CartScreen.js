@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { CART, ITEMSDETAILS } from '../data/dummy-data';
-import { t } from 'react-native-tailwindcss';
 import Button from '../components/Button';
 
 export default function CartScreen() {
@@ -12,15 +11,15 @@ export default function CartScreen() {
       <Text style={styles.title}>Shopping Cart</Text>
       {itemDetail.map(item => {
         return (
-          <View style={styles.cartContainer} key={item.id}>
+          <View style={styles.cardContainer} key={item.id}>
             <Image
-              style={{ width: '50%', height: 120 }}
+              style={styles.image}
               source={{
                 url: item.photos[0],
               }}
             ></Image>
-            <Text>{item.title}</Text>
-            <Text>{item.price}</Text>
+            <Text style={styles.itemText}>{item.title}</Text>
+            <Text style={styles.priceText}>{item.price}</Text>
           </View>
         );
       })}
@@ -28,9 +27,37 @@ export default function CartScreen() {
     </View>
   );
 }
-const styles = {
-  container: [t.flex1, t.mT10, t.p6, t.bgGray200],
-  cartContainer: [t.flexCol, t.flex2, t.bgPink900],
-  title: [t.textBlue800, t.textCenter, t.fontBold, t.mB5, t.textXl],
-  itemImage: [t.w50, t.h100],
-};
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 50,
+    flex: 1,
+    flexDirection: 'column',
+    padding: 20,
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    marginBottom: 10,
+    marginTop: 10,
+  },
+  title: {
+    height: 40,
+    textAlign: 'center',
+    fontWeight: '700',
+    fontSize: 30,
+    marginTop: 5,
+    marginBottom: 5,
+    width: '100%',
+  },
+  itemText: {
+    flexShrink: 1,
+    marginLeft: 10,
+  },
+  priceText: {
+    fontWeight: '800',
+  },
+  image: {
+    backgroundColor: 'yellow',
+    width: '30%',
+    height: 120,
+  },
+});
