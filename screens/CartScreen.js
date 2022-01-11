@@ -53,9 +53,12 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   itemText: {
+    marginRight: 10,
+    marginLeft: 10,
     flexShrink: 1,
   },
   priceText: {
+    marginLeft: 'auto',
     fontWeight: '800',
   },
   image: {
