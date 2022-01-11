@@ -8,11 +8,15 @@ import { CartContext } from '../contexts/CartContext';
 
 export default function ItemDetail({ route, navigation }) {
   const [activeColor, setActiveColor] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const cart = useContext(CartContext);
   const { itemId } = route.params;
   const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
 
   useLayoutEffect(() => {
+    if (cart.itemDetailIds.includes(itemDetail.id)) {
+      setIsButtonDisabled(true);
+    }
     navigation.setOptions(
       {
         headerRight: () => (
@@ -32,7 +36,13 @@ export default function ItemDetail({ route, navigation }) {
       : { ...styles.sizeBox, ...styles.sizeBoxDisabled };
   };
   const addToCart = id => {
-    cart.setItemDetailIds([id, ...cart.itemDetailIds]);
+    if (!isButtonDisabled || cart.itemDetailIds.includes(id)) {
+      cart.setItemDetailIds([id, ...cart.itemDetailIds]);
+      setIsButtonDisabled(true);
+    }
+  };
+  const isItemAlreadyInCart = id => {
+    return cart.itemDetailIds.includes(id);
   };
   return (
     <ScrollView>
@@ -74,7 +84,11 @@ export default function ItemDetail({ route, navigation }) {
           <Text style={setSizeBoxStyle('L')}>L</Text>
           <Text style={setSizeBoxStyle('XL')}>XL</Text>
         </View>
-        <Button onPress={() => addToCart(itemDetail.id)} label="Add to Cart" />
+        <Button
+          disabled={isButtonDisabled}
+          onPress={() => addToCart(itemDetail.id)}
+          label="Add to Cart"
+        />
         <View>
           <Text style={styles.detailTitle}>Estimated Delivery:</Text>
           <Text style={styles.detail}>{itemDetail?.estimatedDelivery}</Text>
