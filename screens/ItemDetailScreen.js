@@ -41,9 +41,7 @@ export default function ItemDetail({ route, navigation }) {
       setIsButtonDisabled(true);
     }
   };
-  const isItemAlreadyInCart = id => {
-    return cart.itemDetailIds.includes(id);
-  };
+
   return (
     <ScrollView>
       {itemDetail?.photos && (

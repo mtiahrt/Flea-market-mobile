@@ -3,10 +3,16 @@ import { StyleSheet, ScrollView, Text, View, Image } from 'react-native';
 import { ITEMSDETAILS } from '../data/dummy-data';
 import Button from '../components/Button';
 import { CartContext } from '../contexts/CartContext';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function CartScreen() {
-  const { itemDetailIds } = useContext(CartContext);
-  const itemDetail = ITEMSDETAILS.filter(x => itemDetailIds.includes(x.id));
+  const cart = useContext(CartContext);
+  const itemDetail = ITEMSDETAILS.filter(x =>
+    cart.itemDetailIds.includes(x.id)
+  );
+  const removeItem = id => {
+    cart.setItemDetailIds(cart.itemDetailIds.filter(x => x !== id));
+  };
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Shopping Cart</Text>
@@ -22,10 +28,20 @@ export default function CartScreen() {
               ></Image>
               <Text style={styles.itemText}>{item.title}</Text>
               <Text style={styles.priceText}>{item.price}</Text>
+              <Ionicons
+                onPress={() => removeItem(item.id)}
+                style={styles.closeButton}
+                name="close"
+                size={24}
+                color="black"
+              />
             </View>
           );
         })}
-      <Button label="Checkout"></Button>
+      <Button
+        disabled={cart.itemDetailIds.length === 0}
+        label="Checkout"
+      ></Button>
     </ScrollView>
   );
 }
@@ -41,7 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 10,
     marginTop: 10,
-    justifyContent: 'flex-start',
+    backgroundColor: 'lightgray',
   },
   title: {
     height: 40,
@@ -53,16 +69,20 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   itemText: {
-    marginRight: 10,
     marginLeft: 10,
+    marginTop: 10,
     flexShrink: 1,
   },
   priceText: {
+    marginRight: 5,
     marginLeft: 'auto',
     fontWeight: '800',
+    marginTop: 10,
+  },
+  closeButton: {
+    padding: 5,
   },
   image: {
-    // backgroundColor: 'lightblue',
     width: '30%',
     height: 120,
   },
