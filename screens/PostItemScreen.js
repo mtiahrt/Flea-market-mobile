@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Switch, Text, View } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 import { t } from 'react-native-tailwindcss';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { FontAwesome } from '@expo/vector-icons';
 import { useForm, Controller } from 'react-hook-form';
+// import ImagePickerExample from '../components/ImgPicker';
 
 export default function PostItem() {
   const {
@@ -77,7 +78,7 @@ export default function PostItem() {
             name="camera"
             size={32}
           />
-          <FontAwesome name="photo" size={32} color={t.bgGray600} />
+          {/* <ImagePickerExample buttonStyle={styles} /> */}
         </View>
         <Button onPress={handleSubmit(onSubmit)} label="Submit" />
       </View>
