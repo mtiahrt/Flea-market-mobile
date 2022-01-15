@@ -1,13 +1,22 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, Text, View } from 'react-native';
 import { t } from 'react-native-tailwindcss';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { FontAwesome } from '@expo/vector-icons';
 import { useForm, Controller } from 'react-hook-form';
-// import ImagePickerExample from '../components/ImgPicker';
+import { pickImage } from '../components/ImgPicker';
 
 export default function PostItem() {
+  const [image, setImage] = useState(null);
+
+  const pickMyImage = async () => {
+    const result = await pickImage();
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
   const {
     handleSubmit,
     control,
@@ -78,8 +87,14 @@ export default function PostItem() {
             name="camera"
             size={32}
           />
-          {/* <ImagePickerExample buttonStyle={styles} /> */}
+          <FontAwesome
+            name="photo"
+            size={32}
+            color={t.bgGray600}
+            onPress={pickMyImage}
+          />
         </View>
+        {image && <Image source={{ uri: image }} style={styles.image} />}
         <Button onPress={handleSubmit(onSubmit)} label="Submit" />
       </View>
     </>
@@ -90,4 +105,5 @@ const styles = {
   container: [t.flex1, t.mT10, t.p6, t.bgGray200],
   title: [t.textBlue800, t.textCenter, t.fontBold, t.mB5, t.textXl],
   cameraButtons: [t.flexRow, t.justifyEvenly],
+  image: [t.h20, t.w20, t.m3],
 };
