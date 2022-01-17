@@ -54,7 +54,7 @@ export default function ItemDetail({ route, navigation }) {
         <Divider style={styles.divider} />
         <Text style={styles.itemManufacturer}>Express</Text>
         <Text>{itemDetail?.title}</Text>
-        <Text style={styles.price}>$88</Text>
+        <Text style={styles.price}>${itemDetail.price}</Text>
         <Divider style={styles.divider} />
         <Text style={styles.newSection}>Color:</Text>
         <View style={styles.colorBoxes}>

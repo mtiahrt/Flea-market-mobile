@@ -23,7 +23,7 @@ export default function CartScreen() {
               <Image
                 style={styles.image}
                 source={{
-                  url: item.photos[0],
+                  uri: item.photos[0],
                 }}
               ></Image>
               <Text style={styles.itemText}>{item.title}</Text>
