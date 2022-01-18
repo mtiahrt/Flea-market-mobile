@@ -13,6 +13,7 @@ export default function CartScreen() {
   const removeItem = id => {
     cart.setItemDetailIds(cart.itemDetailIds.filter(x => x !== id));
   };
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Shopping Cart</Text>

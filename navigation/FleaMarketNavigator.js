@@ -9,10 +9,27 @@ import ItemList from '../screens/ItemsScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import PostItemScreen from '../screens/PostItemScreen';
 import CartScreen from '../screens/CartScreen';
+import ImgCapture from '../components/ImgCapture';
 
 const BottomTabNav = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
+const AddPostStackNav = () => {
+  return (
+    <Stack.Navigator initialRouteName="PostItem">
+      <Stack.Screen
+        name="PostItem"
+        component={PostItemScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ImgCapture"
+        component={ImgCapture}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 const FleaMarketStackNav = () => {
   return (
     <Stack.Navigator initialRouteName="CatagoryList">
@@ -63,7 +80,7 @@ function FleaMarketBottomTabs() {
         })}
       >
         <BottomTabNav.Screen name="Catagories" component={FleaMarketStackNav} />
-        <BottomTabNav.Screen name="Add" component={PostItemScreen} />
+        <BottomTabNav.Screen name="Add" component={AddPostStackNav} />
         <BottomTabNav.Screen name="Cart" component={CartScreen} />
       </BottomTabNav.Navigator>
     </NavigationContainer>

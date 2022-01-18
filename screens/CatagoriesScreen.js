@@ -6,8 +6,6 @@ import { CATEGORIES, SUBCATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = ({ navigation }) => {
   const [expanded, setExpanded] = React.useState(true);
-
-  // const handlePress = () => setExpanded(!expanded);
   const handleSubcategoryOnPress = id => {
     navigation.navigate('ItemList', {
       subCategoryId: id,

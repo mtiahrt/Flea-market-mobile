@@ -7,7 +7,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useForm, Controller } from 'react-hook-form';
 import { pickImage } from '../components/ImgPicker';
 
-export default function PostItem() {
+export default function PostItem({ navigation }) {
   const [image, setImage] = useState(null);
 
   const pickMyImage = async () => {
@@ -83,7 +83,9 @@ export default function PostItem() {
         />
         <View style={styles.cameraButtons}>
           <FontAwesome
-            onPress={() => console.log('camera was pressed')}
+            onPress={() =>
+              navigation.navigate('ImgCapture', { setImage: setImage })
+            }
             name="camera"
             size={32}
           />
