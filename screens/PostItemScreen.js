@@ -6,14 +6,23 @@ import Button from '../components/Button';
 import { FontAwesome } from '@expo/vector-icons';
 import { useForm, Controller } from 'react-hook-form';
 import { pickImage } from '../components/ImgPicker';
+import { useFocusEffect } from '@react-navigation/native';
 
-export default function PostItem({ navigation }) {
-  const [image, setImage] = useState(null);
+export default function PostItem({ route, navigation }) {
+  const [images, setImages] = useState([]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (route.params?.image) {
+        setImages([...images, route.params.image]);
+      }
+    }, [route.params?.image])
+  );
 
   const pickMyImage = async () => {
     const result = await pickImage();
     if (!result.cancelled) {
-      setImage(result.uri);
+      setImages([...images, result.uri]);
     }
   };
 
@@ -83,9 +92,9 @@ export default function PostItem({ navigation }) {
         />
         <View style={styles.cameraButtons}>
           <FontAwesome
-            onPress={() =>
-              navigation.navigate('ImgCapture', { setImage: setImage })
-            }
+            onPress={() => {
+              navigation.navigate('ImgCapture');
+            }}
             name="camera"
             size={32}
           />
@@ -96,7 +105,11 @@ export default function PostItem({ navigation }) {
             onPress={pickMyImage}
           />
         </View>
-        {image && <Image source={{ uri: image }} style={styles.image} />}
+        <View style={styles.imagesContainer}>
+          {images.map((img, i) => (
+            <Image key={i} source={{ uri: img }} style={styles.images} />
+          ))}
+        </View>
         <Button onPress={handleSubmit(onSubmit)} label="Submit" />
       </View>
     </>
@@ -107,5 +120,6 @@ const styles = {
   container: [t.flex1, t.mT10, t.p6, t.bgGray200],
   title: [t.textBlue800, t.textCenter, t.fontBold, t.mB5, t.textXl],
   cameraButtons: [t.flexRow, t.justifyEvenly],
-  image: [t.h20, t.w20, t.m3],
+  imagesContainer: [t.flexRow, t.flexWrap, t.mT2],
+  images: [t.h20, t.w16, t.m1],
 };

@@ -7,10 +7,12 @@ export default function ImgCapture({ route, navigation }) {
   const [type, setType] = useState(Camera.Constants.Type.back);
   let camera;
   const takePicture = async () => {
-    const { setImage } = route.params;
-    const photo = await camera.takePictureAsync();
-    setImage(photo.uri);
-    navigation.pop();
+    try {
+      const photo = await camera.takePictureAsync();
+      navigation.navigate({ name: 'PostItem', params: { image: photo.uri } });
+    } catch (err) {
+      console.log('ohhhhh no error is', err.message);
+    }
   };
   useEffect(() => {
     (async () => {
