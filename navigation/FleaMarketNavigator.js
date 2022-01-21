@@ -2,18 +2,22 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Ionicons } from '@expo/vector-icons';
 
-import CategoriesScreen from '../screens/CatagoriesScreen';
+import HomeScreen from '../screens/HomeScreen';
 import ItemList from '../screens/ItemsScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import PostItemScreen from '../screens/PostItemScreen';
 import CartScreen from '../screens/CartScreen';
 import ImgCapture from '../components/ImgCapture';
+import PrivacyPolicy from '../screens/PrivacyPolicy';
+import ContactSupport from '../screens/ContactSupport';
 
 const BottomTabNav = createBottomTabNavigator();
-
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
 const AddPostStackNav = () => {
   return (
     <Stack.Navigator initialRouteName="PostItem">
@@ -32,12 +36,12 @@ const AddPostStackNav = () => {
 };
 const FleaMarketStackNav = () => {
   return (
-    <Stack.Navigator initialRouteName="CatagoryList">
+    <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
-        name="CatagoryList"
-        component={CategoriesScreen}
+        name="Catagory List"
+        component={HomeScreen}
         options={{
-          headerTitle: 'Catagory List',
+          headerTitleAlign: 'center',
         }}
       />
       <Stack.Screen
@@ -58,7 +62,40 @@ const FleaMarketStackNav = () => {
   );
 };
 
-function FleaMarketBottomTabs() {
+export function FleaMarketDrawer() {
+  return (
+    <Drawer.Navigator
+      initialRouteName="Catagories"
+      screenOptions={{
+        drawerStyle: {
+          width: 200,
+        },
+      }}
+    >
+      <Drawer.Screen
+        options={{
+          drawerActiveTintColor: 'tomato',
+          headerTransparent: true,
+          headerTitle: '',
+        }}
+        name="Home"
+        component={FleaMarketStackNav}
+      />
+      <Drawer.Screen
+        name="Privacy Policy"
+        component={PrivacyPolicy}
+        options={{ drawerActiveTintColor: 'tomato' }}
+      />
+      <Drawer.Screen
+        name="Contact Support"
+        component={ContactSupport}
+        options={{ drawerActiveTintColor: 'tomato' }}
+      />
+    </Drawer.Navigator>
+  );
+}
+
+export function FleaMarketBottomTabs() {
   return (
     <NavigationContainer>
       <BottomTabNav.Navigator
@@ -79,12 +116,10 @@ function FleaMarketBottomTabs() {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <BottomTabNav.Screen name="Catagories" component={FleaMarketStackNav} />
+        <BottomTabNav.Screen name="Catagories" component={FleaMarketDrawer} />
         <BottomTabNav.Screen name="Add" component={AddPostStackNav} />
         <BottomTabNav.Screen name="Cart" component={CartScreen} />
       </BottomTabNav.Navigator>
     </NavigationContainer>
   );
 }
-
-export default FleaMarketBottomTabs;

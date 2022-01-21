@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { List } from 'react-native-paper';
 import { ScrollView, Text, View } from 'react-native';
-import Category from '../data/models/category';
 import { CATEGORIES, SUBCATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = ({ navigation }) => {
