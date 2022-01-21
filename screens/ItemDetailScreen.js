@@ -30,11 +30,6 @@ export default function ItemDetail({ route, navigation }) {
   const setSizeToSelected = txt => {
     setActiveColor(txt);
   };
-  const setSizeBoxStyle = size => {
-    return itemDetail?.sizes?.includes(size)
-      ? styles.sizeBox
-      : { ...styles.sizeBox, ...styles.sizeBoxDisabled };
-  };
   const addToCart = id => {
     if (!isButtonDisabled || cart.itemDetailIds.includes(id)) {
       cart.setItemDetailIds([id, ...cart.itemDetailIds]);
@@ -52,7 +47,7 @@ export default function ItemDetail({ route, navigation }) {
       )}
       <View style={styles.container}>
         <Divider style={styles.divider} />
-        <Text style={styles.itemManufacturer}>Express</Text>
+        <Text style={styles.itemManufacturer}>{itemDetail.manufacturer}</Text>
         <Text>{itemDetail?.title}</Text>
         <Text style={styles.price}>${itemDetail.price}</Text>
         <Divider style={styles.divider} />
@@ -76,11 +71,13 @@ export default function ItemDetail({ route, navigation }) {
         </View>
         <Text style={styles.newSection}>Size:</Text>
         <View style={styles.sizeBoxes}>
-          <Text style={setSizeBoxStyle('XS')}>XS</Text>
-          <Text style={setSizeBoxStyle('S')}>S</Text>
-          <Text style={setSizeBoxStyle('M')}>M</Text>
-          <Text style={setSizeBoxStyle('L')}>L</Text>
-          <Text style={setSizeBoxStyle('XL')}>XL</Text>
+          {itemDetail.sizes.map(item => {
+            return (
+              <Text key={item} style={styles.sizeBox}>
+                {item}
+              </Text>
+            );
+          })}
         </View>
         <Button
           disabled={isButtonDisabled}

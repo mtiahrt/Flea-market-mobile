@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Flea-market-mobile",
-    "slug": "Flea-market-mobile",
+    "name": "Wild Heather Store",
+    "slug": "wild-heather-store",
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,12 +18,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
+    "android": {},
     "web": {
       "favicon": "./assets/favicon.png"
     }

@@ -3,7 +3,9 @@ class ItemDetail {
     id,
     itemId,
     title,
+    manufacturer,
     photos,
+    thumbPhoto,
     description,
     sizes,
     price,
@@ -16,7 +18,9 @@ class ItemDetail {
     this.id = id;
     this.itemId = itemId;
     this.title = title;
+    this.manufacturer = manufacturer;
     this.photos = photos;
+    this.thumbPhoto = thumbPhoto;
     this.description = description;
     this.sizes = sizes;
     this.price = price;

@@ -64,22 +64,24 @@ export const SUBCATEGORIES = [
     'Computers and accessories'
   ),
 ];
+
 export const ITEMS = [
   new Item(
     'i1',
     'c1',
     's1',
-    'Mens TShirt',
-    'https://target.scene7.com/is/image/Target/GUEST_22d315b6-3f34-4bcb-b94c-c89055614af4?wid=315&hei=315&qlt=60&fmt=pjpeg',
-    'Mens Buttom up shirt'
+    'Goldschmied Jeans',
+    'https://images2.imgbox.com/91/4c/R9klzW8u_o.jpg',
+    'Mens Faded 31R Jeans'
   ),
+
   new Item(
     'i2',
     'c1',
     's1',
-    'Mens Shirt',
-    'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
-    'Mens rugbe shirt'
+    'Lucky Jeans',
+    'https://images2.imgbox.com/0f/3d/bQP6I0dS_o.jpg',
+    'Mens Faded blue jeans'
   ),
 
   new Item(
@@ -195,13 +197,15 @@ export const ITEMSDETAILS = [
   new ItemDetail(
     'detail1',
     'i1',
-    'Floral Moisture-Wicking Performance T-Shirt',
+    'Faded jean button fly',
+    'AG Adriano Goldschmied',
     [
-      'https://target.scene7.com/is/image/Target/GUEST_22d315b6-3f34-4bcb-b94c-c89055614af4?wid=315&hei=315&qlt=60&fmt=pjpeg',
+      'https://images2.imgbox.com/91/4c/R9klzW8u_o.jpg',
       'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
     ],
-    'Mens blue Tshirt',
-    ['L', 'XL'],
+    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
+    'Mens jeans',
+    ['31R'],
     88.45,
     '3-5 business days',
     '60 days money back',
@@ -215,12 +219,12 @@ export const ITEMSDETAILS = [
   new ItemDetail(
     'detail2',
     'i2',
-    'Lucky Mens Large Polo casual polo shirt',
-    [
-      'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
-    ],
-    'Mens blue gray polo',
-    ['L'],
+    'Mens Lucky Jeans',
+    'Lucky Jeans',
+    ['https://thumbs2.imgbox.com/0f/3d/bQP6I0dS_t.jpg'],
+    'https://thumbs2.imgbox.com/0f/3d/bQP6I0dS_t.jpg',
+    'Mens faded blue jeans',
+    ['14/32'],
     99.25,
     '3-5 business days',
     '30 days money back',
