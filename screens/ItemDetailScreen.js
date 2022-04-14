@@ -5,13 +5,18 @@ import { ITEMSDETAILS } from '../data/dummy-data';
 import { Divider } from 'react-native-paper';
 import { t } from 'react-native-tailwindcss';
 import { CartContext } from '../contexts/CartContext';
+import SnackBar from '../components/SnackBar';
 
 export default function ItemDetail({ route, navigation }) {
   const [activeColor, setActiveColor] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [snackBarVisible, setSnackBarVisible] = React.useState(false);
   const cart = useContext(CartContext);
   const { itemId } = route.params;
   const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
+
+  const onToggleSnackBar = () => setSnackBarVisible(!snackBarVisible);
+  const onDismissSnackBar = () => setSnackBarVisible(false);
 
   useLayoutEffect(() => {
     if (cart.itemDetailIds.includes(itemDetail.id)) {
@@ -38,6 +43,7 @@ export default function ItemDetail({ route, navigation }) {
   };
 
   return (
+    <>
     <ScrollView>
       {itemDetail?.photos && (
         <Image
@@ -81,7 +87,11 @@ export default function ItemDetail({ route, navigation }) {
         </View>
         <Button
           disabled={isButtonDisabled}
-          onPress={() => addToCart(itemDetail.id)}
+          onPress={() => {
+            addToCart(itemDetail.id);
+            onToggleSnackBar();
+          }
+        }
           label="Add to Cart"
         />
         <View>
@@ -96,6 +106,8 @@ export default function ItemDetail({ route, navigation }) {
         </View>
       </View>
     </ScrollView>
+    <SnackBar visible={snackBarVisible} onDismiss={onDismissSnackBar} message='This item has been added to your cart' />
+    </>
   );
 }
 
