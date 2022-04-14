@@ -118,7 +118,7 @@ export const ITEMS = [
     's2',
     'womens Pants',
     'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484',
-    'womens flannel shirt'
+    'women flannel shirt'
   ),
   new Item(
     'i14',
@@ -236,10 +236,12 @@ export const ITEMSDETAILS = [
     'detail3',
     'i14',
     'Womens Thigh High',
+    'Koles',
     [
       'https://cdn.shopify.com/s/files/1/0580/1077/products/Thigh_High_1_copy_721f9be0-0de2-45f1-a883-1d4a2b3f0826.jpg?v=1606855202',
     ],
-    'womans thigh workout spandex pants',
+    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
+    'women thigh workout spandex pants',
     ['L', 'M', 'S'],
     45.99,
     '3-7 business days',
@@ -256,7 +258,9 @@ export const ITEMSDETAILS = [
     'detail4',
     'i15',
     'Womens Summer Dress',
+    'Koles',
     ['https://www.lulus.com/images/product/xlarge/3200150_607722.jpg?w=70'],
+    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
     'womans thigh workout spandex pants',
     ['L', 'XS', 'S'],
     49.99,
@@ -274,9 +278,11 @@ export const ITEMSDETAILS = [
     'detail5',
     'i16',
     'Womens Buttom up shirt',
+    'Kens',
     [
       'https://images.bellelily.com/2021/09/16/516174_564910210_122.images.139x197.jpg',
     ],
+    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
     'womans thigh workout spandex pants',
     ['L', 'XL', 'S'],
     34.99,
@@ -294,16 +300,22 @@ export const ITEMSDETAILS = [
     'detail6',
     'i13',
     'Womens Pant',
+    'Bebe',
     [
-      'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484',
+      'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484'
     ],
-    'womans thigh workout spandex pants',
-    ['L', 'XS', 'S'],
+    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
+    'women thigh workout spandex pants',
+    ['L', 'XL', 'S'],
     34.99,
     '3-7 business days',
     '14 days good as cash',
-    [{ color: '#09040b', name: 'Black' }],
-    'Cotten',
+    [
+      { color: '#e1751e', name: 'orange' },
+      { color: '#e91694', name: 'pink' },
+      { color: '#874bb4', name: 'purple' },
+    ],
+    'Cotton',
     'FexEx'
   ),
 ];

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { List } from 'react-native-paper';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { CATEGORIES, SUBCATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = ({ navigation }) => {
-  const [expanded, setExpanded] = React.useState(true);
   const handleSubcategoryOnPress = id => {
     navigation.navigate('ItemList', {
       subCategoryId: id,
@@ -27,14 +26,14 @@ const CategoriesScreen = ({ navigation }) => {
                   onPress={() => handleSubcategoryOnPress(subCat.id)}
                   left={props => (
                     (props.style = { marginLeft: 25, marginVertical: 0 }),
-                    (
-                      <List.Icon
-                        {...props}
-                        icon={subCat.iconName ? subCat.iconName : ''}
-                      />
-                    )
+                      (
+                        <List.Icon
+                          {...props}
+                          icon={subCat.iconName ? subCat.iconName : ''}
+                        />
+                      )
                   )}
-                ></List.Item>
+                  />
               );
             })}
           </List.Accordion>

@@ -34,14 +34,17 @@ const AddPostStackNav = () => {
     </Stack.Navigator>
   );
 };
-const FleaMarketStackNav = () => {
+const FleaMarketStackNav = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
-        name="Catagory List"
+        name="Category List"
         component={HomeScreen}
         options={{
           headerTitleAlign: 'center',
+          headerLeft: () => (
+            <Ionicons onPress={() => navigation.openDrawer()} name='menu' size={25} color='gray'  />
+          ),
         }}
       />
       <Stack.Screen
@@ -62,15 +65,19 @@ const FleaMarketStackNav = () => {
   );
 };
 
-export function FleaMarketDrawer() {
+export function FleaMarketDrawerNav() {
   return (
-    <Drawer.Navigator
-      initialRouteName="Catagories"
-      screenOptions={{
+    <Drawer.Navigator id='leftDrawer'
+      initialRouteName="Categories"
+      screenOptions={({navigation}) => ({
+        headerShown: false,
         drawerStyle: {
           width: 200,
         },
-      }}
+        headerLeft: () => {
+            return < Ionicons onPress = {() => navigation.openDrawer()} name='menu' size={25} color='gray'  />
+      }
+      })}
     >
       <Drawer.Screen
         options={{
@@ -84,25 +91,25 @@ export function FleaMarketDrawer() {
       <Drawer.Screen
         name="Privacy Policy"
         component={PrivacyPolicy}
-        options={{ drawerActiveTintColor: 'tomato' }}
+        options={{ headerShown: true, drawerActiveTintColor: 'tomato' }}
       />
       <Drawer.Screen
         name="Contact Support"
         component={ContactSupport}
-        options={{ drawerActiveTintColor: 'tomato' }}
+        options={{ headerShown: true, drawerActiveTintColor: 'tomato' }}
       />
     </Drawer.Navigator>
   );
 }
 
-export function FleaMarketBottomTabs() {
+export function FleaMarketBottomTabs({navigation}) {
   return (
     <NavigationContainer>
-      <BottomTabNav.Navigator
+      <BottomTabNav.Navigator id='bottomTabNav'
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-            if (route.name === 'Catagories') {
+            if (route.name === 'Categories') {
               iconName = focused ? 'ios-home' : 'ios-home-outline';
             } else if (route.name === 'Add') {
               iconName = focused ? 'ios-add-circle' : 'ios-add-circle-outline';
@@ -116,7 +123,7 @@ export function FleaMarketBottomTabs() {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <BottomTabNav.Screen name="Catagories" component={FleaMarketDrawer} />
+        <BottomTabNav.Screen name="Categories" component={FleaMarketDrawerNav} />
         <BottomTabNav.Screen name="Add" component={AddPostStackNav} />
         <BottomTabNav.Screen name="Cart" component={CartScreen} />
       </BottomTabNav.Navigator>

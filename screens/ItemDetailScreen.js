@@ -53,7 +53,7 @@ export default function ItemDetail({ route, navigation }) {
         <Divider style={styles.divider} />
         <Text style={styles.newSection}>Color:</Text>
         <View style={styles.colorBoxes}>
-          {itemDetail?.colors.map(color => {
+          {itemDetail?.colors?.map(color => {
             return (
               <Text
                 key={color.color}
