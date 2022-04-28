@@ -10,7 +10,7 @@ export const CATEGORIES = [
     'Clothing',
     'https://as1.ftcdn.net/v2/jpg/02/85/94/70/1000_F_285947084_ePYjQpzCaQq6Vb2GEoYGZs8MNYkUhNqB.jpg',
     'hanger',
-    'Womans, Mens, Children, Toddlers, Babies. We have all walks of life'
+    'Women, Mens, Children, Toddlers, Babies. We have all walks of life'
   ),
   new Category(
     'e1',
@@ -24,7 +24,7 @@ export const CATEGORIES = [
     'Home Goods',
     'https://thumbs.dreamstime.com/z/houseplants-room-vector-illustration-cartoon-flat-living-kitchen-cozy-apartment-flower-plants-pot-home-decor-shelf-178489626.jpg',
     'bookshelf',
-    'Furniture, NicNacks, Picture Frames, Drapes, Decorative items.  What you would need to scale up your home.'
+    'Furniture, Nic-Nacks, Picture Frames, Drapes, Decorative items.  What you would need to scale up your home.'
   ),
   new Category(
     'h1',
@@ -40,21 +40,21 @@ export const SUBCATEGORIES = [
     'c1',
     'Mens Clothing',
     'human-male',
-    'Mens Clothing from tshirts to pants'
+    'Mens Clothing from t-shirts to pants'
   ),
   new Subcategory(
     's2',
     'c1',
-    'Womens Clothing',
+    'Women\'s Clothing',
     'human-female',
-    'Womens Clothing from tshirts to pants'
+    'Women\'s Clothing from t-shirts to pants'
   ),
   new Subcategory(
     's3',
     'c1',
     'Kids Clothing',
     'human-child',
-    'Kids Clothing from tshirts to pants'
+    'Kids Clothing from t-shirts to pants'
   ),
   new Subcategory(
     's4',
@@ -70,7 +70,7 @@ export const ITEMS = [
     'i1',
     'c1',
     's1',
-    'Goldschmied Jeans',
+    'Goldsmiths Jeans',
     'https://images2.imgbox.com/91/4c/R9klzW8u_o.jpg',
     'Mens Faded 31R Jeans'
   ),
@@ -91,7 +91,7 @@ export const ITEMS = [
     '',
     "Super old 'retro' ipod touch. Brings back memories"
   ),
-  new Item('i4', 'e1', 'Samsang TV', '', '42 inch Smart TV'),
+  new Item('i4', 'e1', 'Samsung TV', '', '42 inch Smart TV'),
   new Item('i5', 'e1', 'Droid phone ', '', 'LVC Cheap phone.'),
   new Item(
     'i6',
@@ -108,15 +108,15 @@ export const ITEMS = [
     'Green couch but need looking.  Needs a home. '
   ),
   new Item('i8', 'hg1', 'Fire place mantle', '', 'Looks good, fire resistant'),
-  new Item('i9', 'h1', 'Table saw', '', 'Mens Buttom up shirt'),
-  new Item('i10', 'h1', 'Circular saw', '', 'Sharp so be carfull'),
+  new Item('i9', 'h1', 'Table saw', '', 'Mens buttom up shirt'),
+  new Item('i10', 'h1', 'Circular saw', '', 'Sharp so be careful'),
   new Item('i11', 'h1', 'Router', '', '44 mm bit included'),
-  new Item('i12', 'h1', 'Drill Press', '', '5 lbs of pressare is all you need'),
+  new Item('i12', 'h1', 'Drill Press', '', '5 lbs of pressure is all you need'),
   new Item(
     'i13',
     'c1',
     's2',
-    'womens Pants',
+    'women\'s Pants',
     'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484',
     'women flannel shirt'
   ),
@@ -124,31 +124,31 @@ export const ITEMS = [
     'i14',
     'c1',
     's2',
-    'Womens Thigh High',
+    'Women\'s Thigh High',
     'https://cdn.shopify.com/s/files/1/0580/1077/products/Thigh_High_1_copy_721f9be0-0de2-45f1-a883-1d4a2b3f0826.jpg?v=1606855202',
-    'womens dress skirt'
+    'women\'s dress skirt'
   ),
   new Item(
     'i15',
     'c1',
     's2',
-    'Womens dress',
+    'Women\'s dress',
     'https://www.lulus.com/images/product/xlarge/3200150_607722.jpg?w=70',
-    'womens dress up pants'
+    'women\'s dress up pants'
   ),
   new Item(
     'i16',
     'c1',
     's2',
-    'Womens button up',
+    'Women\'s button up',
     'https://images.bellelily.com/2021/09/16/516174_564910210_122.images.139x197.jpg',
-    'womens dress'
+    'women\'s dress'
   ),
   new Item(
     'i17',
     'c1',
     's3',
-    'Kids lestic Pants',
+    'Kids les tic Pants',
     'https://canary.contestimg.wish.com/api/webimage/5c872c591a866b1f66dd8d93-3-small.jpg',
     'carters pant'
   ),
@@ -182,7 +182,7 @@ export const ITEMS = [
     's3',
     'New Born onese ',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShrh0q-q-Byr6YVQdsZNV286v-o1EQRl8cveQEeF_xXUU6pIHYzvNKuWfSvDBQJzsyims&usqp=CAU',
-    'baby onse'
+    'baby onese'
   ),
   new Item(
     'i22',
@@ -190,7 +190,7 @@ export const ITEMS = [
     's3',
     'Kids 6T Shirt',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWu7CqXaWRI9IqM9cRaC_xn-dzHedgfXMOX47Wa15pZJJ63OwIgE_tuixZ9KTC1zyvY0Q&usqp=CAU',
-    'toddler tshirt'
+    'toddler t-shirt'
   ),
 ];
 export const ITEMSDETAILS = [
@@ -198,7 +198,7 @@ export const ITEMSDETAILS = [
     'detail1',
     'i1',
     'Faded jean button fly',
-    'AG Adriano Goldschmied',
+    'AG Adriano Goldsmiths',
     [
       'https://images2.imgbox.com/91/4c/R9klzW8u_o.jpg',
       'https://target.scene7.com/is/image/Target/GUEST_7666110d-95d8-487a-931e-dd1689a043e4?wid=315&hei=315&qlt=60&fmt=pjpeg',
@@ -214,7 +214,7 @@ export const ITEMSDETAILS = [
       { color: 'coral', name: 'coral' },
     ],
     '70% rayon, 25% nylon',
-    'USPS priotity mail'
+    'USPS priority mail'
   ),
   new ItemDetail(
     'detail2',
@@ -229,18 +229,18 @@ export const ITEMSDETAILS = [
     '3-5 business days',
     '30 days money back',
     [{ color: '#ddd', name: 'gray' }],
-    '100% Cotten',
-    'USPS priotity mail'
+    '100% Cotton',
+    'USPS priority mail'
   ),
   new ItemDetail(
     'detail3',
     'i14',
-    'Womens Thigh High',
+    'Women\'s Thigh High',
     'Koles',
     [
       'https://cdn.shopify.com/s/files/1/0580/1077/products/Thigh_High_1_copy_721f9be0-0de2-45f1-a883-1d4a2b3f0826.jpg?v=1606855202',
     ],
-    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
+    'https://thumbs2.imgbox.com/73/e3/En2T3XLy_t.jpg',
     'women thigh workout spandex pants',
     ['L', 'M', 'S'],
     45.99,
@@ -251,17 +251,17 @@ export const ITEMSDETAILS = [
       { color: '#e91694', name: 'pink' },
       { color: '#874bb4', name: 'purple' },
     ],
-    'Cotten',
+    'Cotton',
     'FexEx'
   ),
   new ItemDetail(
     'detail4',
     'i15',
-    'Womens Summer Dress',
-    'Koles',
-    ['https://www.lulus.com/images/product/xlarge/3200150_607722.jpg?w=70'],
-    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
-    'womans thigh workout spandex pants',
+    'Women\'s Summer Dress',
+    'Koles\'',
+    ['https://thumbs2.imgbox.com/53/e1/WCdRhMGy_t.jpg'],
+    'https://thumbs2.imgbox.com/53/e1/WCdRhMGy_t.jpg',
+    'women\'s thigh workout spandex pants',
     ['L', 'XS', 'S'],
     49.99,
     '3-7 business days',
@@ -271,19 +271,19 @@ export const ITEMSDETAILS = [
       { color: '#e91694', name: 'blue' },
       { color: '#874bb4', name: 'pink' },
     ],
-    'Cotten',
+    'Cotton',
     'FexEx'
   ),
   new ItemDetail(
     'detail5',
     'i16',
-    'Womens Buttom up shirt',
+    'Women\'s buttom up shirt',
     'Kens',
     [
       'https://images.bellelily.com/2021/09/16/516174_564910210_122.images.139x197.jpg',
     ],
-    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
-    'womans thigh workout spandex pants',
+    'https://images.bellelily.com/2021/09/16/516174_564910210_122.images.139x197.jpg',
+    'women thigh workout spandex pants',
     ['L', 'XL', 'S'],
     34.99,
     '3-7 business days',
@@ -293,18 +293,18 @@ export const ITEMSDETAILS = [
       { color: '#e91694', name: 'pink' },
       { color: '#874bb4', name: 'purple' },
     ],
-    'Cotten',
+    'Cotton',
     'FexEx'
   ),
   new ItemDetail(
     'detail6',
     'i13',
-    'Womens Pant',
+    'Women\'s Pant',
     'Bebe',
     [
       'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484'
     ],
-    'https://thumbs2.imgbox.com/91/4c/R9klzW8u_t.jpg',
+    'https://cdn.shopify.com/s/files/1/0371/4095/5275/products/Pocket-Booty-Lifting-Anti-Cellulite-Leggings-Slide-Leggings-1614963243_150x150_crop_center.progressive.jpg?v=1623199484',
     'women thigh workout spandex pants',
     ['L', 'XL', 'S'],
     34.99,

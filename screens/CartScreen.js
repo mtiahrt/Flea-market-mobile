@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default function CartScreen() {
   const cart = useContext(CartContext);
   const itemDetail = ITEMSDETAILS.filter(x =>
-    cart.itemDetailIds.includes(x.id)
+    cart.itemDetailIds.includes(x.itemId)
   );
   const removeItem = id => {
     cart.setItemDetailIds(cart.itemDetailIds.filter(x => x !== id));
@@ -26,7 +26,7 @@ export default function CartScreen() {
                 source={{
                   uri: item.thumbPhoto,
                 }}
-              ></Image>
+              />
               <Text style={styles.itemText}>{item.title}</Text>
               <Text style={styles.priceText}>{item.price}</Text>
               <Ionicons
@@ -42,7 +42,7 @@ export default function CartScreen() {
       <Button
         disabled={cart.itemDetailIds.length === 0}
         label="Checkout"
-      ></Button>
+      />
     </ScrollView>
   );
 }

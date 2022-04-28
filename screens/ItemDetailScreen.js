@@ -6,15 +6,15 @@ import { Divider } from 'react-native-paper';
 import { t } from 'react-native-tailwindcss';
 import { CartContext } from '../contexts/CartContext';
 import SnackBar from '../components/SnackBar';
+import item from '../data/models/item';
 
-export default function ItemDetail({ route, navigation }) {
+export default function ItemDetail({ route }) {
   const [activeColor, setActiveColor] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [snackBarVisible, setSnackBarVisible] = React.useState(false);
   const cart = useContext(CartContext);
   const { itemId } = route.params;
   const itemDetail = ITEMSDETAILS.find(x => x.itemId === itemId);
-
   const onToggleSnackBar = () => setSnackBarVisible(!snackBarVisible);
   const onDismissSnackBar = () => setSnackBarVisible(false);
 
@@ -22,14 +22,6 @@ export default function ItemDetail({ route, navigation }) {
     if (cart.itemDetailIds.includes(itemDetail.id)) {
       setIsButtonDisabled(true);
     }
-    navigation.setOptions(
-      {
-        headerRight: () => (
-          <Button icon={'cart'} onPress={() => {}} title="cart"></Button>
-        ),
-      },
-      [navigation]
-    );
   });
 
   const setSizeToSelected = txt => {
@@ -88,7 +80,7 @@ export default function ItemDetail({ route, navigation }) {
         <Button
           disabled={isButtonDisabled}
           onPress={() => {
-            addToCart(itemDetail.id);
+            addToCart(itemDetail.itemId);
             onToggleSnackBar();
           }
         }
@@ -97,7 +89,7 @@ export default function ItemDetail({ route, navigation }) {
         <View>
           <Text style={styles.detailTitle}>Estimated Delivery:</Text>
           <Text style={styles.detail}>{itemDetail?.estimatedDelivery}</Text>
-          <Text style={styles.detailTitle}>Delivary Method:</Text>
+          <Text style={styles.detailTitle}>Delivery Method:</Text>
           <Text style={styles.detail}>{itemDetail?.deliveryTerms}</Text>
           <Text style={styles.detailTitle}>Return Policy:</Text>
           <Text style={styles.detail}>{itemDetail?.returnPolicy}</Text>

@@ -21,14 +21,14 @@ export default function ItemList({ route, navigation }) {
     });
   };
   const handleCallback = filterOptionsSelected => {
-    const mySubcategorys = filterOptionsSelected
+    const mySubcategories = filterOptionsSelected
       .filter(item => item.isChecked)
       .map(item => item.subCategoryId);
     setItems(
       ITEMS.filter(
         i =>
           i.subCategoryId === subCategoryId &&
-          mySubcategorys.includes(i.subsubCategoryId)
+          mySubcategories.includes(i.subCategoryId)
       )
     );
   };
@@ -47,7 +47,6 @@ export default function ItemList({ route, navigation }) {
       [navigation]
     );
   });
-  console.log('item list is rendering...');
   return (
     <>
       <Portal>

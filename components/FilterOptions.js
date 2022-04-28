@@ -15,7 +15,6 @@ export default function FilterOptions({ parentCallback }) {
   }, []);
 
   const [checked, setChecked] = useState(data);
-  console.log('FilterOptions Rendered');
   const handledClick = name => {
     const changedIndex = checked.map(x => x.label).indexOf(name);
     let newState = checked.concat();
