@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { StyleSheet, ScrollView, Text, View, Image } from 'react-native';
+import { StyleSheet, TouchableOpacity, ScrollView, Text, View, Image } from 'react-native';
 import { ITEMSDETAILS } from '../data/dummy-data';
 import Button from '../components/Button';
 import { CartContext } from '../contexts/CartContext';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function CartScreen() {
+export default function CartScreen({navigation}) {
   const cart = useContext(CartContext);
   const itemDetail = ITEMSDETAILS.filter(x =>
     cart.itemDetailIds.includes(x.itemId)
@@ -14,29 +14,40 @@ export default function CartScreen() {
     cart.setItemDetailIds(cart.itemDetailIds.filter(x => x !== id));
   };
 
+  const handleOnPress = itemId => {
+    navigation.navigate('ItemDetailScreen', {
+      itemId: itemId
+    })
+  }
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Shopping Cart</Text>
       {itemDetail &&
         itemDetail.map(item => {
           return (
-            <View style={styles.cardContainer} key={item.id}>
-              <Image
-                style={styles.image}
-                source={{
-                  uri: item.thumbPhoto,
-                }}
-              />
-              <Text style={styles.itemText}>{item.title}</Text>
-              <Text style={styles.priceText}>{item.price}</Text>
-              <Ionicons
-                onPress={() => removeItem(item.id)}
-                style={styles.closeButton}
-                name="close"
-                size={24}
-                color="black"
-              />
-            </View>
+            <>
+              <TouchableOpacity onPress={() => handleOnPress(item.itemId)} style={styles.cardContainer} key={item.id}>
+                <Image
+                  style={styles.image}
+                  source={{
+                    uri: item.thumbPhoto,
+                  }}
+                />
+                <Text style={styles.itemText}>{item.title}</Text>
+                <Text style={styles.priceText}>{item.price}</Text>
+              </TouchableOpacity>
+              <View>
+                <Ionicons
+                  onPress={() => removeItem(item.itemId)}
+                  style={styles.closeButton}
+                  name="close"
+                  size={24}
+                  color="black"
+                />
+              </View>
+
+            </>
           );
         })}
       <Button
@@ -81,7 +92,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   closeButton: {
-    padding: 5,
+    padding: 10,
   },
   image: {
     width: '30%',

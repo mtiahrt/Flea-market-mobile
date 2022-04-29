@@ -6,7 +6,6 @@ import { Divider } from 'react-native-paper';
 import { t } from 'react-native-tailwindcss';
 import { CartContext } from '../contexts/CartContext';
 import SnackBar from '../components/SnackBar';
-import item from '../data/models/item';
 
 export default function ItemDetail({ route }) {
   const [activeColor, setActiveColor] = useState('');
